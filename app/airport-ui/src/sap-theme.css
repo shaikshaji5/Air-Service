@@ -1,0 +1,103 @@
+/* sap-theme.css */
+
+:root {
+    --sap-primary-color: #0a6ed1;
+    --sap-secondary-color: #f2f2f2;
+    --sap-header-bg: #f7f7f7;
+    --sap-border-color: #d9d9d9;
+    --sap-text-color: #32363a;
+    --sap-highlight-color: #ff8888;
+    --sap-hover-color: #e5f2fc;
+    --sap-table-stripe: #fcfcfc;
+    --sap-elevation-highlight: #ffe0e0;
+    --sap-font-family: "72", "72fallback", "Roboto", "Arial", sans-serif;
+  }
+  
+  /* Dark mode overrides */
+  [data-theme='dark'] {
+    --sap-primary-color: #91c8f0;
+    --sap-secondary-color: #1e1e1e;
+    --sap-header-bg: #2a2a2a;
+    --sap-border-color: #444;
+    --sap-text-color: #ffffff;
+    --sap-hover-color: #2f3b44;
+    --sap-table-stripe: #252525;
+    --sap-elevation-highlight: #5a1f1f;
+  }
+  
+  body {
+    font-family: var(--sap-font-family);
+    background-color: var(--sap-secondary-color);
+    color: var(--sap-text-color);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease;
+  }
+  
+  .container {
+    padding: 2rem;
+    background: var(--sap-secondary-color);
+    border: 1px solid var(--sap-border-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  h1, h2, h3 {
+    color: var(--sap-primary-color);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  table thead {
+    background-color: var(--sap-header-bg);
+    border-bottom: 2px solid var(--sap-border-color);
+  }
+  
+  table th, table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--sap-border-color);
+  }
+  
+  table tbody tr:nth-child(even) {
+    background-color: var(--sap-table-stripe);
+  }
+  
+  table tbody tr:hover {
+    background-color: var(--sap-hover-color);
+  }
+  
+  .elevation-high {
+    background-color: var(--sap-elevation-highlight) !important;
+    font-weight: 600;
+    color: #ffbaba;
+  }
+  
+  .button {
+    background-color: var(--sap-primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  .button:hover {
+    background-color: #0b5cc2;
+  }
+  
+  .input {
+    padding: 0.5rem;
+    border: 1px solid var(--sap-border-color);
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  

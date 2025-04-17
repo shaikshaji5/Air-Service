@@ -15,5 +15,17 @@
   },
   "scripts": {
     "start": "cds-serve"
+  },
+  "cds": {
+  "requires": {
+    "db": {
+      "kind": "sqlite",
+      "database": "db.sqlite"
+    }
+  },
+  "folders": {
+    "db": "db",
+    "srv": "srv"
   }
+}
 }
