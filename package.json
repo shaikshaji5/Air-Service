@@ -1,31 +1,39 @@
 {
-  "name": "Air-Service",
+  "name": "air-service",
   "version": "1.0.0",
   "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
     "@sap/cds": "^8",
+    "@sap/xssec": "^4.6.0",
     "express": "^4"
   },
   "devDependencies": {
+    "@cap-js/cds-types": "^0.10.0",
     "@cap-js/sqlite": "^1",
-    "@cap-js/cds-types": "^0.10.0"
+    "@sap/cds-dk": "^8.9.2"
   },
   "scripts": {
     "start": "cds-serve"
   },
   "cds": {
-  "requires": {
-    "db": {
-      "kind": "sqlite",
-      "database": "db.sqlite"
+    "requires": {
+      "uaa": {
+        "kind": "xsuaa"
+      }
+    },
+    "folders": {
+      "db": "db",
+      "srv": "srv"
+    },
+    "build": {
+      "target": "gen",
+      "skip": ["db"]
     }
   },
-  "folders": {
-    "db": "db",
-    "srv": "srv"
-  }
-}
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "type": "commonjs"
 }

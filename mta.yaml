@@ -1,0 +1,39 @@
+---
+_schema-version: "3.1"
+ID: air-service
+version: 1.0.0
+description: "A simple CAP project."
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm ci
+        - npx cds build --production
+modules:
+  - name: air-service-srv
+    type: nodejs
+    path: gen/srv
+    parameters:
+      instances: 1
+      buildpack: nodejs_buildpack
+    build-parameters:
+      builder: npm-ci
+    provides:
+      - name: srv-api
+        properties:
+          srv-url: ${default-url}
+          odata-url: https://dev-learning-trial-i528922-air-service-srv.cfapps.eu12.hana.ondemand.com/odata/v4
+    requires:
+      - name: air-service-uaa
+
+resources:
+
+  - name: air-service-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      config:
+        xsappname: air-service
