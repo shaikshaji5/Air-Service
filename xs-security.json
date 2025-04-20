@@ -1,21 +1,38 @@
 {
-    "xsappname": "airport-app-xsuaa",
-    "tenant-mode": "dedicated",
-    "scopes": [
-      {
-        "name": "$XSAPPNAME.User",
-        "description": "Access for users"
-      }
-    ],
-    "authorities": [],
-    "role-templates": [
-      {
-        "name": "Viewer",
-        "description": "Viewer role for the app",
-        "scope-references": [
-          "$XSAPPNAME.User"
-        ]
-      }
-    ]
-  }
-  
+  "xsappname": "air-service-uaa",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.User",
+      "description": "Access for general users"
+    },
+    {
+      "name": "$XSAPPNAME.Admin",
+      "description": "Access for administrators"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Viewer",
+      "description": "Viewer role for the app",
+      "scope-references": [
+        "$XSAPPNAME.User"
+      ]
+    },
+    {
+      "name": "Admin",
+      "description": "Administrator role for the app",
+      "scope-references": [
+        "$XSAPPNAME.Admin"
+      ]
+    }
+  ],
+  "authorities": [],
+  "attributes": [
+    {
+      "name": "country",
+      "description": "Country attribute for filtering data",
+      "valueType": "string"
+    }
+  ]
+}

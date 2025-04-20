@@ -20,7 +20,7 @@ export default function CreateAirportForm() {
     try {
       await axios.post('http://localhost:4004/odata/v4/airport/Airports', formData);
       setSubmitted(true);
-      setTimeout(() => navigate('/'), 1500); // Auto-redirect after 1.5s
+      setTimeout(() => navigate('/'), 1500); 
     } catch (error) {
       console.error('Error creating airport:', error);
     }

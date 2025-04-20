@@ -1,7 +1,7 @@
 namespace airport;
 
 entity AIRPORTS {
-  key _key     : UUID;
+  key  _key    :String;
       icao     : String;
       iata     : String;
       name     : String;

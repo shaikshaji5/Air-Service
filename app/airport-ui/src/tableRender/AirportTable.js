@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../sap-theme.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function AirportTable() {
   const [airports, setAirports] = useState([]);
   const [sortField, setSortField] = useState('name');
   const [sortOrder, setSortOrder] = useState('asc');
   const [filter, setFilter] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchAirports();
@@ -45,9 +47,18 @@ export default function AirportTable() {
 
   return (
     <div className="p-4">
-      
-      <h1 className="text-xl font-bold mb-4">Airports</h1>
 
+
+
+      <h1 className="text-xl font-bold mb-4">Airports</h1>
+      <div className="flex justify-end mb-4">
+  <button
+    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+    onClick={() => navigate('/create')}
+  >
+    Add New Airport
+  </button>
+</div>
       <input
         type="text"
         placeholder="Filter by name..."
